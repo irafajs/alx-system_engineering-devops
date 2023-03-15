@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -ra | find . -type f -empty | find . -type d -empty
+ls -a | find . -type f -empty | find . -type d -empty
