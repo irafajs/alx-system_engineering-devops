@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#Script prints out the content of current directory
+
+for file in *; do
+	if [[ $file == *-* ]]; then
+		echo "${file:2}"
+	else
+		echo "$file"
+	fi
+done
