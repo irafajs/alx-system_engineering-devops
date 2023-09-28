@@ -3,7 +3,7 @@
 var='Best School'
 counter=1
 
-while [ $counter -ne 10 ]; do
+while [ $counter -ne 11 ]; do
 	echo "$var"
 	((counter++))
 done

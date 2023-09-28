@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#print 1-20 at 4 prints bad luck from China at 9 prints bad luck from Japan at 17 prints bad luck from Italy
+counter=1
+
+while [ $counter -ne 21 ]; do
+	case $counter in
+		4)
+			echo "4"
+			echo "bad luck from China"
+			;;
+		9)
+			echo "9"
+			echo "bad luck from Japan"
+			;;
+		17)
+			echo "17"
+			echo "bad luck from Italy"
+			;;
+		*)
+			echo "$counter"
+			;;
+	esac
+	((counter++))
+done
