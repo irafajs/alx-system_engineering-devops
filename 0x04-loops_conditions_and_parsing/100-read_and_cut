@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#Script to display the content of /etc/passwd
+s_file='/etc/passwd'
+
+if [ -r "$s_file" ]; then
+	while IFS=":" read -r username _ uid _ _ home_dir _; do
+		echo "$username:$uid:$home_dir"
+	done < "$s_file"
+else
+	echo "$s_file does not exist"
+fi
