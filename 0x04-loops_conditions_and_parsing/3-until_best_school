@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#writes out passed string 10 time using until loop
+
+var='Best School'
+counter=10
+until [ $counter == 1 ];
+do
+	echo "$var"
+	((counter--))
+done

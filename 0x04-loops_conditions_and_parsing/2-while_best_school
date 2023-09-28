@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#write out passed string 10 times using while looping
+var='Best School'
+counter=1
+
+while [ $counter -ne 10 ]; do
+	echo "$var"
+	((counter++))
+done
