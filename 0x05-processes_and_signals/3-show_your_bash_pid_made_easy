@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 #Script tp print out PID with process name with bash in it
 
-pgrep -a bash | while read -r pid process; do
-	echo "$pid $process"
-done
+pgrep -l bash
