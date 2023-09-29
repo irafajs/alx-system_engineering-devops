@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#Script to write a string indefinitly
+
+while :
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
