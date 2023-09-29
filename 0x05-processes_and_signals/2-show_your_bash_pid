@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Script to prints out all process with bash in it
+
+ps aux | grep -i bash
