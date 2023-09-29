@@ -3,6 +3,6 @@
 
 process_name="7-highlander"
 pid=$(pgrep "bash ./$process_name" -f)
-if [ -n "pid" ]; then
+if [ -n "$pid" ]; then
 	kill -9 "$pid"
 fi
