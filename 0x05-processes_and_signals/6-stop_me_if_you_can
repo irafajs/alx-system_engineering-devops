@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#Script to stop the indefinit loop
+
+process_name="4-to_infinity_and_beyond"
+pkill -15 "bash ./$process_name" -f
