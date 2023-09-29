@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#Script that run indefinilty and print i am invincible when receive SIGTERM
+
+trap "echo 'I am invincible!!!'" 15
+
+while : 
+do
+	echo "To infinity and beyond"
+	sleep 2
+done	
