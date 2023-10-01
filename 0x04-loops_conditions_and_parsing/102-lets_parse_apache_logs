@@ -1,10 +1,4 @@
 #!/usr/bin/env bash
 #Script to extract needed info from apache log file
-print_line='apache_access.log'
 
-if [ -s "$print_line" ]; then
-
-	awk '{print $1 " " $9}' $print_line
-else
-	echo "The file is empty"
-fi
+awk '{print $1 " " $9}' apache_access.log
