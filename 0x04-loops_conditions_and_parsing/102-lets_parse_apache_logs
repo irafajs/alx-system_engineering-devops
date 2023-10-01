@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Script to extract needed info from apache log file
+
+awk -F' ' '{print $1,$9}' apache_access.log
