@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #Script to extract needed info from apache log file
 
-awk '{print $1 " " $9}' apache_access.log
+awk '{print $1 " " $9}' apache-access1.log | awk 'NF > 0'
