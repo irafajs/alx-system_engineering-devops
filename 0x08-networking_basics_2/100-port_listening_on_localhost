@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#diplayy active ip on machine where it is runned on
+
+nc -l -p 98

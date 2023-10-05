@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#diplayy active ip on machine where it is runned on
+
+ip -4 addr | awk '/inet/ {print $2}' | cut -d'/' -f1
