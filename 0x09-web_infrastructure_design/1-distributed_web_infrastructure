@@ -1,0 +1,21 @@
+1.	Distributed web infrastructure:
+
+With addition to the design, we had before, we decided to add a second server, the logic we had was 2 tier, now we are going to adopt a 3 tier logic.
+
+In this logic we have separated the storage (DATA BASE), now it has its own server hosting.
+
+The other server hosts webserver, web application, application files and a load balancer.
+
+So, on the database we still use the same type as the first used in the previous design.
+The only thing here we must check, is how we are connecting to the database, here we will choose to connect using socket type.
+
+1. Load Balancer (HAProxy):
+
+Distributes incoming traffic across web servers.
+Distribution Algorithm: Round Robin.
+We are using active-active, active-active means we are deploying more than one instance to work hand in hand at the same time, while active-passive one instance works (active) and the other on stand by to work once active is down(passive).
+
+SPOF, the single point of failure on this model, adding to the first design, every traffic is passing through a load balancer, if it failure it will disrupt the service
+
+FIREWALL, HTTPS: to ensure that we are secure on server side and web side, we have to set a firewall in this case we have not set it yet, and on web side we have to use an SSL/TLS to secure our webpage so that the data transmitted there is secure and private.
+
