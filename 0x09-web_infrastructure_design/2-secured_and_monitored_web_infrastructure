@@ -1,0 +1,17 @@
+2.	Secured and monitored web infrastructure.
+
+Whiteboarding image link https://imgur.com/c7qSGmH
+In this logic we are still using 2 tiers logic, but we have added firewall, SSL to secure our data on web and monitoring app to monitor our web application.
+We are adding firewall to add a security layer for our web application adding a SSL for another security layer for our website communication secure service and a monitoring service to monitor the performance of our web application.
+
+WHAT IS FIREWALL: firewalls are software, or it could be a hardware to control the traffic in our infrastructure according to the set rules.
+
+TRAFFIC ARE SERVER OVER HTPPS: to secure traffic over the http request and response we must secure it using SSL certificate.
+Monitoring is used to collect performance metrics, log data, and monitor system health.
+
+Why terminating SSL at the load balancer level is an issue because at that level we dropped the security now the data is vulnerable.
+
+Having a SQL database with written might be an issue if it goes down, without a back-up all the data will be lost, and this is a critical issue for the client and the server.
+
+Having a server with all the components is a big issue also as if it fails all the components on it will be lost, the solution is to have a recovery site so that when we meet a failure issue we will have a failsafe option.
+
