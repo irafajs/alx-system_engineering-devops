@@ -1,0 +1,43 @@
+WHITE BOADING IMAGE URL https://imgur.com/c9aa8BQ
+WEB INFRASTRUCTURE
+
+Our web we have used a 2-tier logic where we have client at one end and server with all components at another side, components in the server including:
+•	WEB SERVER(NGINX)
+•	APPLICATION SERVER 
+•	APPLICATION FILES 
+•	DATABASES (MySQL)
+SERVER:
+
+Server is a machine (powerful machine) that host above mentioned component, it will have to coordinate all the process and able to handle the request of client and be able to respond. The server must have enough memory as it is hosting every component of our web application.
+
+ROLE OF DOMAIN NAME:
+
+The role of a domain name Is to translate the human language into something the machine can understand. In this example we have a foobar.com, which is a case of human readable our DNS will translate this to 8.8.8.8 which is something the machine understands.
+
+DNS TYPE FOR www.foobar.com:
+
+A RECORD
+NS RECORD
+SOA RECORD
+TXT RECORD
+CERT RECORD
+WEB SERVER:
+
+The role of our web server is simple it will receive the request from the client and process them, if it something it must respond to directly it will handle it, but if it needs more data it will have to send a request to our web application for more data manipulation. Once the web application has responded our web server will formulate an HTTP/S response and communicate to the client machine. In a few words our webserver only server HTTP request.
+
+ROLE APPLICATION SERVER:
+In this case the role of our application server will be to handle request from webserver in this case HTTP request, it will handle the request formulate a response and pass it to back to webserver for it to respond to the client.
+
+ROLE OF DATABASE:
+
+Role of our database (MySQL) as all database is to store the data of all web application. In this case we are using a relational database to store the data.
+
+Our web application is accessible via internet using the domain name www.foobar.com. This domain name is reachable through IP 8.8.8.8 which is registered but as we are using DNS to translate this IP into human language so using IP is not necessary, but it can work if it is used.
+
+Single point of failure (SPOF), Analyzing the infrastructure the only critical single point of failure would be if the physical server fail,  then we will have full failure of web applications, in this case the only solution is to have a regular back up on a different server so that in time of failure we will have a back-up to restore to, and also it would be strongly advisable to set a disaster recovery plan.
+
+While maintaining our system, this is a big challenge in our days, how can we make sure that the end user does not see the downtime. The only way I can see is to fail over to disaster recovery and while the Main is down, we do our maintenance. Once done we can fail back to main (but this is an idea I don’t if it is something possible to set) this would work as disaster recovery at end of day it will have same data as the main web app (mean a copy of the main). So, what is being done now day, once there is a downtime an end user must be communicated with, and we make sure we use as much less time as possible so that it does not affect end users.
+
+The scalability and the ability to of the server to handle traffic will be something to study but at the start we consider a capacity to server 3000 per user, assuming that the server hosting the web application is able to  handle, if the request grow up more than the initial request, we would have to consider upgrading the server resources and  consider other possibilities like using load balancer etc…
+
+
