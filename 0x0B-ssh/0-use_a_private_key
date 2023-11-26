@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
+#set host name and connect to it
 
-#set the server's IP address or hostname
 server="34.232.67.163"
-
-# Use the ssh command with single-character flags
 ssh -i ~/.ssh/school ubuntu@"$server"
