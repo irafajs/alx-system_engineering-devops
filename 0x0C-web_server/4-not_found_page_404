@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#bash to redirect the another page
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/index404.html
+write_to_red=/etc/nginx/sites-available/default
+no_fo_p="error_page 404 /index404.html;\nlocation = /index404.html {\n\troot /var/www/html;\n\t\tinternal;\n}\n"
+sudo sed -i "29i $no_fo_p" $write_to_red
+sudo service nginx restart
