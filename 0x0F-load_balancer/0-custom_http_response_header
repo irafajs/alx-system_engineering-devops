@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#bash to redirect the another page
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+header_resp=/etc/nginx/sites-available/default
+sudo sed -i "29i add_header X-Served-By $HOSTNAME;" $header_resp
+sudo service nginx restart
