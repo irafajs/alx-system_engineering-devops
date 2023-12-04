@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#bash to redirect the another page
+
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+
+sudo echo -e "frontend 320504_fend
+\tbind *:80
+\tmode http
+\tdefault_backend 320504_bend" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+sudo echo -e "backend 320504_bend
+\tbalance roundrobin
+\tserver 320504-web-01 100.25.134.107:80 check
+\tserver 320504-web-02 35.153.51.30:80 check" | sudo tee -a /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
