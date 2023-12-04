@@ -1,25 +1,24 @@
 #insert customer header in the response
-class { 'nginx':
-  package_manage => true,
-}
 
-file { '/etc/nginx/sites-available/default':
-  ensure  => file,
-  content => "server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+exec {'update':
+  provider => shell,
+  command  => 'sudo apt -y update',
+  before   => Exec['nginx installation'],
+  }
 
-    server_name _;
+exec { 'nginx installation':
+  provider => shell,
+  command  => 'sudo apt -y install nginx',
+  }
 
-    location / {
-        add_header X-Served-By ${::hostname};
-    }
-}",
-  require => Package['nginx'],
-  notify  => Service['nginx'],
-}
+exec { 'custom_header':
+  provider    => shell,
+  environment => ["HOSTNAME=${hostname}"],
+  command     => 'sudo sed -i "29i add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default',
+  before      => Exec['start_nginx'],
+  }
 
-service { 'nginx':
-  ensure => running,
-  enable => true,
-}
+exec { 'start_nginx':
+  provider => shell,
+  command  => 'sudo service nginx restart',
+  }
