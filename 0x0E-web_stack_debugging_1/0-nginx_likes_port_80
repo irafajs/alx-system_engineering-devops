@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#bash to make sure nginx is running at 80 port
+
+if command -v nginx &> /dev/null; then
+	ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+	service nginx restart
+else
+	exit 1
+fi
