@@ -76,11 +76,5 @@ COMMIT
 # is uncommented)
 -A ufw-before-input -p udp -d 239.255.255.250 --dport 1900 -j ACCEPT
 
-# Forward the port 8080 to 80
-*nat
-:PREROUTING ACCEPT [0:0]
--A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
-COMMIT
-
 # don't delete the 'COMMIT' line or these rules won't be processed
 COMMIT
