@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+sudo useradd -m -s /bin/bash nginx
+chown -R nginx:nginx /etc/nginx /var/log/nginx /var/lib/nginx /var/www/html
+sed -i 's/^user.*/user nginx;/' /etc/nginx/nginx.conf
+setcap CAP_NET_BIND_SERVICE=+eip /usr/sbin/nginx
+sudo service nginx start
