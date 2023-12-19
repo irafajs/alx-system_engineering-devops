@@ -3,4 +3,4 @@
 sudo kill -9 apache2
 chomd 777 /etc/nginx/nginx.cong
 sudo sed -i "s/80/8080/g" /etc/nginx/sites-available/default
-sudo service nginx restart
+sudo -u nginx service nginx restart
