@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# bash to create a back of mysql database
+if [ -z "$1" ]; then
+  echo "Usage: $0 <mysql_password>"
+  exit 1
+fi
+
+MYSQL_USER="root"
+MYSQL_PASSWORD="$1"
+MYSQL_DUMP_FILE="backup.sql"
+DATE_FORMAT=$(date +"%d-%m-%Y")
+ARCHIVE_NAME="$DATE_FORMAT.tar.gz"
+
+mysqldump -u "$MYSQL_USER" -p"$MYSQL_PASSWORD" --all-databases > "$MYSQL_DUMP_FILE"
+tar -czvf "$ARCHIVE_NAME" "$MYSQL_DUMP_FILE"
+rm "$MYSQL_DUMP_FILE"
+echo "Backup completed successfully. Archive: $ARCHIVE_NAME"
