@@ -21,7 +21,7 @@ def get_employee_todo_progress(employee_id):
         todos = response.json()
         csv_filename = f'{u_d["id"]}.csv'
         with open(csv_filename, 'w', newline='') as csvfile:
-            csv_writer = csv.writer(csvfile)
+            csv_writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
             for task in todos:
                 csv_writer.writerow([u_d["id"], u_d["username"], str(
                     task["completed"]), task["title"]])
