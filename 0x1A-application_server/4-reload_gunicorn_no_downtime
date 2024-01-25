@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+PIDS=$(pgrep gunicorn)
+FIRST_PID=$(echo "$PIDS" | awk '{print $1}')
+if [ -n "$FIRST_PID" ]; then
+    kill -HUP "$FIRST_PID"
+
+    echo "Reloading complete."
+else
+    echo "Gunicorn process not found or PID argument is empty."
+fi
+
