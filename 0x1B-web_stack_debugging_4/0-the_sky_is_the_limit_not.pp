@@ -6,8 +6,8 @@ exec { 'fix-ulimit':
 
 # nginx restart
 exec { 'nginx-restart':
-  command => '/etc/init.d/nginx restart',
-  path    => '/etc/init.d',
+  command     => '/etc/init.d/nginx restart',
+  path        => '/etc/init.d',
   refreshonly => true,
   subscribe   => Exec['fix-ulimit'],
 }
